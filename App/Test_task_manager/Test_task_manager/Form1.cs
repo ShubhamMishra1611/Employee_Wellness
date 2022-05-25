@@ -222,7 +222,7 @@ namespace Test_task_manager
         }
         public void update()
         {
-            chart1.Series.Clear();
+            chart1.Series[0].Points.Clear();
             string[] lines=File.ReadAllLines(@"..\Debug\Employee.txt");
             foreach (string line in lines)
             {
