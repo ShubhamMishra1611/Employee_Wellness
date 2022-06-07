@@ -70,12 +70,39 @@ namespace home_page
                 {
                     label1.Text = "Good Evening";
                 }
+                int sum = 0;
+                string[] lines =File.ReadAllLines(@"..\Debug\Employee.txt");
+                foreach (string line in lines)
+                {
+                    string[] emp_data = line.Split(' ');
+                    string task_name = emp_data[0];
+                    DateTime deadline = Convert.ToDateTime(emp_data[2]);
+                    DateTime dt = DateTime.Now;
+                    int remaining_hours = (int)deadline.Subtract(dt).TotalHours;//
+                    int task_value = Convert.ToInt32(emp_data[1]);
+                    int priority = Convert.ToInt32(emp_data[3]);
+                    int importance = (task_value*priority*110)/remaining_hours;
+                    sum+=importance;
+                    if (importance < 0)
+                    {
+                        continue;
+                    }
+                }
+
+                if(sum>500)
+                {
+                    label2.Text="You have a busy schedule today.\n Start your work with a mindful meditation.";
+                }
+
             }
             else
             {
                 panel3.Show();
                 txtuserID.Focus();
             }
+
+
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -176,6 +203,7 @@ namespace home_page
                             {
                                 sw.Write(txtuserID.Text);
                             }
+                            checkif();
                         }
                         catch(Exception wx)
                         {
@@ -192,6 +220,26 @@ namespace home_page
             else
             {
                 MessageBox.Show("This User ID doesn't exist");
+            }
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        public void checkif()
+        {
+            path=@"..\Debug\exercise.txt";
+            string[] lines =File.ReadAllLines(path);
+            if (DateTime.Now.ToString("HH:mm:ss tt")==lines[0])
+            {
+                MessageBox.Show("It is recommended that you should do exercise at this time.");
             }
         }
     }

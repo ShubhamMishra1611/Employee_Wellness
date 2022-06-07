@@ -87,138 +87,6 @@ namespace Test_task_manager
         private void button1_Click(object sender, EventArgs e)
         {
             add_task_();
-            #region comments
-
-
-
-
-
-
-
-            /*chart1.Series.Clear();
-            //Add all data to excel file
-            Cursor.Current = Cursors.WaitCursor;
-            Excel.Application xlApp = new Excel.Application();
-            Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(FileName);
-            Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
-            Excel.Range xlRange = xlWorksheet.UsedRange;
-            if (xlRange.Cells[1, 5] != null)
-            {
-                i = Convert.ToInt32(xlRange.Cells[1, 5].Value2.ToString());
-            }
-            xlWorksheet.Cells[i, 1]=TextBox_name.Text;
-            xlWorksheet.Cells[i, 2]=comboBox1.Text;
-            xlWorksheet.Cells[i, 3]=dateTimePicker1.Text;
-            xlWorksheet.Cells[i, 4]=domainUpDown1.Text;
-            xlWorksheet.Cells[1, 5]=i+1;
-            xlApp.Visible=false;
-            xlApp.UserControl=false;
-            xlApp.ScreenUpdating=false;
-            xlApp.DisplayAlerts=false;
-            xlApp.AutomationSecurity=Microsoft.Office.Core.MsoAutomationSecurity.msoAutomationSecurityForceDisable;
-            xlApp.AskToUpdateLinks=false;
-            xlWorkbook.Save();
-
-            for (int j = 2; j<=i; j++)
-            {
-                int task_value = 0;
-                string name = xlRange.Cells[j, 1].Value2.ToString();
-                string task_type = xlRange.Cells[j, 2].Value2.ToString();
-                switch (task_type)
-                {
-                    case "Meeting":
-                        task_value=5;
-                        break;
-                    case "Personal":
-                        task_value=3;
-                        break;
-                    case "Project":
-                        task_value=10;
-                        break;
-                }
-                DateTime dt = DateTime.FromOADate(xlRange.Cells[j, 3].Value2);
-                if(xlRange.Cells[j,4].Value2.ToString()=="Priority_Level")
-                {
-                    priority=5;
-                }
-                else
-                {
-
-                    priority = Convert.ToInt32(xlRange.Cells[j, 4].Value2.ToString());
-                }
-                DateTime dateTime = DateTime.Now;
-                int remaining_hours = (int)dt.Subtract(dateTime).TotalHours;
-                int importance = (task_value*priority*110)/remaining_hours;
-
-                if(importance <= 0)
-                {
-                    //xlRange.EntireRow.Delete();
-                    xlRange.EntireRow.Delete(xlRange.EntireRow);
-                }
-                chart1.Series["TASK"].Points.AddXY(name, importance);
-                try
-                {
-                    map.Add(j, importance);
-                }
-                catch (Exception ex)
-                {
-                    int k = j+1;
-                    map.Add(k, importance);
-                }
-                
-
-
-            }
-            map.OrderBy(x => x.Value).Select(x => x.Key);
-            try
-            {
-                Taskimp1.Text ="You're very close to deadline of "+xlRange.Cells[map.ElementAt(0).Key, 1].Value2.ToString()+"\n Due " +
-                    "date : "+xlRange.Cells[map.ElementAt(1).Key, 3].Value2.ToString()+"\n This should be your FIRST task...";
-            }
-            catch (Exception ext)
-            {
-                Taskimp1.Text = "Hurrah No work";
-            }
-            try
-            {
-                Taskimp2.Text ="You're close to due date of "+
-                    xlRange.Cells[map.ElementAt(1).Key, 1].Value2.ToString()+"\n Due date : "+
-                    xlRange.Cells[map.ElementAt(1).Key, 3].Value2.ToString()+"\n This should be your SECOND task...";
-            }
-            catch (Exception exy)
-            {
-                Taskimp2.Text="HUrrah No work";
-            }
-            try
-            {
-                Taskimp3.Text ="You'll be close to due date of "+
-                    xlRange.Cells[map.ElementAt(2).Key, 1].Value2.ToString()+"\n Due date : "+
-                    xlRange.Cells[map.ElementAt(2).Key, 3].Value2.ToString()+"\n This should be your THIRD task...";
-            }
-            catch (Exception exex)
-            {
-                Taskimp3.Text="Hurrah No work";
-            }
-            map.Clear();
-
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-
-            Marshal.ReleaseComObject(xlRange);
-            Marshal.ReleaseComObject(xlWorksheet);
-
-            xlWorkbook.Close();
-            Marshal.ReleaseComObject(xlWorkbook);
-
-            xlApp.Quit();
-            Marshal.ReleaseComObject(xlApp);
-
-            Cursor.Current = Cursors.Default;
-
-            
-            panel1.Visible=false;
-            TextBox_name.Clear();*/
-            #endregion
         }
         public void update()
         {
@@ -239,12 +107,12 @@ namespace Test_task_manager
                     continue;
                 }
                 chart1.Series[0].Points.AddXY(task_name, importance);
-                map.Add(importance, new Dictionary<string, string>());
-                map[importance].Add(task_name, Convert.ToString(deadline));
+                //map.Add(importance, new Dictionary<string, string>());
+                //map[importance].Add(task_name, Convert.ToString(deadline));
             }
             #region find_top_three
             //------------------Get to know the top 3 -------------------------\\
-            map.OrderByDescending(x => x.Key);
+            /*map.OrderByDescending(x => x.Key);
 
             try
             {
@@ -279,7 +147,7 @@ namespace Test_task_manager
             map.Clear();
 
             //-----------------------------------Get to know top 3--------------------------------------------\\
-            #endregion
+            #endregion*/
         }
 
         private void tmrupdate_Tick(object sender, EventArgs e)

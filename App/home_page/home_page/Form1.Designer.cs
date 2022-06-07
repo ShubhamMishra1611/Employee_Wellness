@@ -137,6 +137,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(269, 689);
             this.panel1.TabIndex = 6;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button5
             // 
@@ -230,10 +231,11 @@
             this.panel3.Controls.Add(this.btnlogin);
             this.panel3.Controls.Add(this.txtpswd);
             this.panel3.Controls.Add(this.txtuserID);
-            this.panel3.Location = new System.Drawing.Point(-2, 5);
+            this.panel3.Location = new System.Drawing.Point(-2, 1);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1546, 859);
             this.panel3.TabIndex = 9;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // label4
             // 
