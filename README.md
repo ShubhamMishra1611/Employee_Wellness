@@ -7,6 +7,7 @@ This is a project done under the course of ED. It is developed in C#. I contains
 * Helps in maintaining physical as well as mental health
 * Remind about important events and meetings
 
+
 ## Installation
 
 Requirements
@@ -20,7 +21,7 @@ Procedure
 git clone https://github.com/rohitkori/Employee_Wellness.git
 ```
 
-* Open the file home_page.sin in the home_page folder.
+
    
 
 
