@@ -6,6 +6,7 @@ This is a project done under the course of ED. It is developed in C#. I contains
 * Provide confession corner
 * Helps in maintaining physical as well as mental health
 * Remind about important events and meetings
+* Helps HOD/Manager to track the progress report of each project.
 
 
 ## Installation
