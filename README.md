@@ -6,7 +6,7 @@ This is a project done under the course of ED. It is developed in C#. I contains
 * Provide confession corner
 * Helps in maintaining physical as well as mental health
 * Remind about important events and meetings
-* Help the manager/HOD to track the progress of each project.
+
 
 ## Installation
 
@@ -21,7 +21,7 @@ Procedure
 git clone https://github.com/rohitkori/Employee_Wellness.git
 ```
 
-* Open the file home_page.sln in the home_page folder.
+
    
 
 
